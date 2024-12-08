@@ -26,7 +26,7 @@ export const AppRouter = () => {
           />
           
           <Route element={<AuthGuard />}>
-            <Route path="/add-gift" element={<AddLink />} />
+            <Route path="/add-gift" element={<Layout><AddLink /></Layout>} />
             <Route
             path={"/settings"}
             element={

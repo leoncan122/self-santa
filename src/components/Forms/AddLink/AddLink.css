@@ -5,9 +5,9 @@
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    padding: 2rem 2.5rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 10px;
-    background-color: #fa3a3a4d;
+    /* background-color: #fa3a3a4d; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -19,14 +19,14 @@
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #333;
+    color: #f0e8e8;
 }
 
 .custom-form .form-group input {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #f0e8e8;
     border-radius: 5px;
     font-size: 1rem;
 }
