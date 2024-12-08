@@ -5,13 +5,7 @@ import './MyList.css'
 import { Link } from "react-router-dom";
 export const MyList = () => {
   const [gifts, setGifts] = useState<Gift[]>(mockGifts);
-  const [newLink, setNewLink] = useState<Gift>(emptyGift);
 
-
-  const addGift = () => {
-      setGifts([...gifts, newLink]);
-  }
- 
 
     return (
       <div className="my-list-container">

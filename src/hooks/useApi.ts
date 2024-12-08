@@ -12,10 +12,10 @@ interface useApiResults<T, P> {
 }
 
 
-interface Options<P> {
+type Options<P> = {
     params?: P;
     autoFetch?: boolean;
-}
+} & (P extends null ?  { params?: P} : { params: P });
 
 export const useApi= <T, P>(call: (params?: P) => void, options?: Options<P> ): useApiResults<T, P> => {
     const [data, setData] = useState<Data<T>>(null);

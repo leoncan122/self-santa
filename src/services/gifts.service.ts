@@ -1,29 +1,44 @@
 import axios from "axios";
 import { FormValues } from "../components/Forms/AddLink/form.model";
+import { UseApi } from "../models/useApi.model";
+import { loadAbortController } from "../utils/loadAbortController.utilities";
+import { Gift } from "../models/gift.model";
 
 interface AddGift {
-    name: string;
+    title: string;
     description: string;
-    image: string;
     price: number;
     link: string;
 }
-export const getGiftList = async () => {
-    return axios.get('http://localhost:3001/gifts'); 
+interface GiftResponse {
+    title: string;
+    description: string;
+    // image: string;
+    price: number;
+    link: string;
+}
+export const getGiftList =  (): UseApi<Gift[]> => {
+    const controller = loadAbortController();
+
+    return {
+        call: axios.get<Gift[]>('http://localhost:3001/gifts'),
+        controller        
+    }
 }
 
-export const addLink = async (link: FormValues) => {
-    return axios.post('http://localhost:3001/links', link, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+export const addLink = (link: string): UseApi<GiftResponse> => {
+    const controller = loadAbortController();
+    return {
+        call: axios.post<AddGift>('http://localhost:3001/links/check', {link}, { signal: controller.signal }),
+        controller
+    };
 }
 
 export const addGift = async (gift: AddGift) => {
-    return axios.post('http://localhost:3001/gifts', gift, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    const controller = loadAbortController();
+
+    return {
+        call: axios.post<AddGift>('http://localhost:3001/gifts', gift, { signal: controller.signal }),
+        controller
+    };
 }
