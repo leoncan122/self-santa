@@ -1,7 +1,7 @@
 
 import { z } from "zod";
 
-export const ADD_LINK = z
+export const ADD_GIFT_SCHEMA = z
   .object({
     url: z.string().min(1, "URL is mandatory"),
     title: z.string().email().min(1, "Title is mandatory"),
@@ -11,4 +11,4 @@ export const ADD_LINK = z
   })
   
 
-export type FormValues = z.infer<typeof ADD_LINK>;
+export type FormValues = z.infer<typeof ADD_GIFT_SCHEMA>;

@@ -1,0 +1,117 @@
+.my-list-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .my-list-container button {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .gift-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: 2rem;
+    overflow: auto;
+    margin-top: 3.25rem;
+    padding-bottom: 2.2rem;
+  }
+
+  
+  .gift-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    min-width: 180px;
+  }
+  
+  .gift-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .gift-details {
+    flex: 1;
+  }
+  
+  .gift-name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #614a97;
+  }
+  
+  .gift-description {
+    margin: 5px 0;
+    color: #555;
+    font-size: 14px;
+    flex-grow: 1;
+  }
+  
+  .gift-price {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  .gift-link {
+    display: inline-block;
+    margin-top: 10px;
+    justify-self: end;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .gift-link:hover {
+    background-color: #0056b3;
+  }
+
+
+  /* /* To style the document scrollbar, remove `.custom-scrollbar` */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 15px;
+
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    /* background : linear-gradient(#a177ff90 10%, ); */
+    /* background: linear-gradient(0.25turn, #9f80e390, #a177ff90, #9f80e390); */
+    background: linear-gradient(0.25turn,transparent, #5eb8df, #ebf8e1, #f69d3c, transparent);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background : #5a24ec90;
+    border-radius: 10px;
+    /* box-shadow:  0 0 6px rgba(0, 0, 0, 0.5); */
+  } 
+  
