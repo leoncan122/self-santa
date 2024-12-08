@@ -19,7 +19,7 @@ type Options<P> = {
 
 export const useApi= <T, P>(call: (params?: P) => void, options?: Options<P> ): useApiResults<T, P> => {
     const [data, setData] = useState<Data<T>>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>(null);
 
 
