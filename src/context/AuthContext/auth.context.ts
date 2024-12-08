@@ -6,7 +6,7 @@ interface AuthContext {
 }
 
 export const emptyAuthContext = {
-    isAuth: false,
+    isAuth: true,
     setIsAuth: () => {}
 }
 

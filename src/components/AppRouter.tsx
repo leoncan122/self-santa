@@ -6,6 +6,7 @@ import { Layout } from "./Forms";
 import { AuthProvider } from "../context/AuthContext/auth.provider";
 import { AuthGuard } from "../guards/AuthGuard";
 import { MyList } from "./User/MyList/MyList";
+import { Funds } from "./Fund/Fund";
 // import { PrivateRouter } from "./private/PrivateRouter"
 export const AppRouter = () => {
   return (
@@ -19,7 +20,7 @@ export const AppRouter = () => {
             path={"/add-funds"}
             element={
               <Layout>
-                <center>Loading..</center>
+                <Funds />
               </Layout>
             }
           />

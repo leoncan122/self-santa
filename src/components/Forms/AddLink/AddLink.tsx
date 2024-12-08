@@ -50,7 +50,7 @@ export const AddLink = () => {
                     error={errors.confirmPassword}
                 /> */}
                 <button type="submit" className="btn btn-primary">
-                    Submit
+                    Add
                 </button>
             </form>
         </>
