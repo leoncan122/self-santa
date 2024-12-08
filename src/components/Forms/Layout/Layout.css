@@ -1,8 +1,10 @@
 .main-layout {
+    min-width: 700px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 3rem;
-    background-color: blueviolet;
+    background-color: rgba(182, 2, 2, 0.308);
 }

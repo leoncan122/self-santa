@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { emptyGift, Gift } from "../../../models/gift.model";
+import { Layout } from "../../Forms";
 const initialGifts: {id:string;name:string;description:string;}[] = [
     { id: '1', name: "Bicycle", description: "A mountain bike" },
     { id: '2', name: "Book", description: "A mystery novel" },
@@ -14,8 +15,12 @@ export const MyList = () => {
       setGifts([...gifts, newGift]);
       setNewGift(emptyGift);
     }
+    useEffect(() => { 
+      
+    }, [gifts]);
+
     return (
-        <div>
+        <>
           <h2>Lista de Regalos</h2>
           <button onClick={addGift}>Agregar</button> 
           <ul>
@@ -23,7 +28,7 @@ export const MyList = () => {
               <li key={index}>{JSON.stringify(gift)}</li>
             ))}
           </ul>
-        </div>
+        </>
       );
 
  

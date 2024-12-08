@@ -16,7 +16,7 @@ export const AddLink = () => {
     };
 
     return (
-        <section>
+        <>
             <h1>
                 Add a new gift
             </h1>
@@ -53,7 +53,7 @@ export const AddLink = () => {
                     Submit
                 </button>
             </form>
-        </section>
+        </>
     );
 }
 
