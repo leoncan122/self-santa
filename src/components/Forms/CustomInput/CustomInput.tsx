@@ -27,7 +27,7 @@ export const InputForm = ({ name, control, label, type, error }: Props) => {
                     />
                 )}
             />
-            {error && <span className="error">{error.message}</span>}
+            {error && <div className="error">{error.message}</div>}
         </div>
     );
 

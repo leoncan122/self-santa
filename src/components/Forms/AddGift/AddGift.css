@@ -29,11 +29,7 @@
 }
 .custom-form .form-group input {
     /* width: 100%; */
-    margin-bottom: 10px;
-    padding: 0.5rem;
-    border: 1px solid #f0e8e8;
-    border-radius: 5px;
-    font-size: 1rem;
+    
 }
 
 .custom-form > button {
@@ -42,9 +38,10 @@
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    font-weight: 700;
     font-weight: 500;
-    color: #161515;
-    background-color: #007bff;
+    color: #fff;
+    background-color: #4e03b0ae;
     cursor: pointer;
 }
 

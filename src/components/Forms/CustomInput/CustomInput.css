@@ -1,12 +1,14 @@
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
 }
-.form-group.input {
+.form-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 0.5rem 0;
     border-radius: 5px;
     font-size: 1rem;
+    display: block;
+    margin-bottom: 0.25rem;
+    border: 1px solid #9805c4;
 }
 
 .form-group button {
@@ -19,4 +21,9 @@
     color: #fff;
     background-color: linear-gradient(90deg, #ff6e7f, #bfe9ff);
     cursor: pointer;
+}
+
+.form-group .error {
+    font-weight: 600;
+    color: rgb(82, 255, 119);
 }

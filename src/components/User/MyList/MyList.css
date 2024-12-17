@@ -1,11 +1,10 @@
 .my-list-container {
-    padding: 20px;
     max-width: 800px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
   }
   
-  h2 {
+  h1 {
     text-align: center;
     margin-bottom: 20px;
   }
@@ -14,8 +13,8 @@
     display: block;
     margin: 0 auto 20px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: #4e03b0ae;
+    /* color: white; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -87,14 +86,14 @@
     margin-top: 10px;
     justify-self: end;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #4e03b0ae;
     color: white;
     text-decoration: none;
     border-radius: 5px;
   }
   
   .gift-link:hover {
-    background-color: #0056b3;
+    background-color: #6d1bd8ae;
   }
 
 

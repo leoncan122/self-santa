@@ -9,7 +9,7 @@ export const MyList = () => {
 
     return (
       <div className="my-list-container">
-      <h2>Lista de Regalos</h2>
+      <h1>Lista de Regalos</h1>
       <button >
         <Link to={'/add-gift'} >Add new gift</Link>
       </button>
