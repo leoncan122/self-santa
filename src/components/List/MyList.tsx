@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { emptyGift, Gift } from "../../../models/gift.model";
-import { mockGifts } from "../../mocks/gifts.mock";
+import { emptyGift, Gift } from "../../models/gift.model";
+import { mockGifts } from "../mocks/gifts.mock";
 import './MyList.css'
 import { Link } from "react-router-dom";
 export const MyList = () => {

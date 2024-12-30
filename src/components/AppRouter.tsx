@@ -4,7 +4,7 @@ import { Header } from "./Header/Header";
 import { Layout } from "./Forms";
 import { AuthProvider } from "../context/AuthContext/auth.provider";
 import { AuthGuard } from "../guards/AuthGuard";
-import { MyList } from "./User/MyList/MyList";
+import { MyList } from "./List/MyList";
 import { Funds } from "./Fund/Fund";
 import { AddGift } from "./Forms/AddGift/AddGift";
 // import { PrivateRouter } from "./private/PrivateRouter"
