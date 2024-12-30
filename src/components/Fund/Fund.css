@@ -1,33 +1,51 @@
 
   .container {
     text-align: center;
-    background: white;
+    background: #589d51f0;
+    color: #000;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+    display: grid;
+    grid-template-areas: "price price cta"
+                          "price price cta"
+                          "list list list";
+    grid-template-rows: repeat(3, minmax(0.4fr, 1fr));
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+}
   
-  .container h1 {
+  /* .container h1 {
     font-size: 2.5rem;
     color: #0f0e46;
     margin-bottom: 1rem;
+  } */
+
+  .funds-total {
+    font-size: 5.5rem;
+    color: #0f0e46;
+    font-weight: 800;
+    grid-area: price;
   }
-  
   .funds-display {
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 1.5rem;
   }
-  
+  .funds-list-container {
+    grid-area: list;
+
+  }
   .add-funds-btn {
     background: #4caf50;
-    color: white;
-    border: none;
+    color: rgb(40, 39, 39);
+    font-weight: 700;
+    border: 5px dotted rgba(219, 221, 216, 0.79);
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
+    grid-area: cta;
   }
   
   .add-funds-btn:hover {
@@ -38,3 +56,23 @@
     background: #3e8e41;
   }
   
+  .funds-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 1rem;
+    overflow: auto;
+    margin-top: 3.25rem;
+    padding-bottom: 2.2rem;
+  }
+.funds-list > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  /* background-color: #ffffff99; */
+  border: 2px  rgba(255, 255, 255, 0.618);
+  border-style: dashed solid;
+  border-radius: 10px;
+} 
