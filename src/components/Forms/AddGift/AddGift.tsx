@@ -1,4 +1,4 @@
-import { FormValues } from "./form.model";
+import { AddGiftFormValues } from "./form.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import  { InputForm } from "../CustomInput/CustomInput";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -9,15 +9,15 @@ import { addGift } from "../../../services/gifts.service";
 import { AddLink } from "../AddLink";
 
 export const AddGift = () => {
-    const { control, handleSubmit, formState: { errors } } = useForm<FormValues>({
+    const { control, handleSubmit, formState: { errors } } = useForm<AddGiftFormValues>({
         resolver: zodResolver(ADD_GIFT_SCHEMA),
         mode: 'onBlur',
     }); 
     
-    const {data, loading, error, fetch} = useApi<FormValues, null>(addGift, {autoFetch: false});
+    const {data, loading, error, fetch} = useApi<AddGiftFormValues, null>(addGift, {autoFetch: false});
 
 
-    const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+    const onSubmit: SubmitHandler<AddGiftFormValues> = (data: AddGiftFormValues) => {
         console.log(data);
     };
 

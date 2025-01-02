@@ -1,4 +1,4 @@
-import { FormValues } from "./form.model";
+import { AddLinkFormValues } from "./form.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputForm } from "../CustomInput/CustomInput";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -12,16 +12,16 @@ export const AddLink = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({
+  } = useForm<AddLinkFormValues>({
     resolver: zodResolver(ADD_LINK),
     mode: "onBlur",
   });
 
-  const { data, loading, error, fetch } = useApi<FormValues, null>(addLink, {
+  const { data, loading, error, fetch } = useApi<AddLinkFormValues, null>(addLink, {
     autoFetch: false,
   });
 
-  const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+  const onSubmit: SubmitHandler<AddLinkFormValues> = (data: AddLinkFormValues) => {
     console.log(data);
   };
 

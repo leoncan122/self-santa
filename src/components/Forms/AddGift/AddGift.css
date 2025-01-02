@@ -1,14 +1,9 @@
 .custom-form {
     display: grid;
     grid-template-columns: 1fr;
-    /* align-items: start; */
-    /* justify-content: center; */
     width: 100%;
-    /* margin: 0 auto; */
-    padding: 0.5rem 0.75rem;
     border-radius: 10px;
-    /* background-color: #fa3a3a4d; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
 }
 .custom-form label {
     display: block;
@@ -25,7 +20,7 @@
     color: #f0e8e8;
 }
 .custom-form .form-group {
-    width: 100%;
+    /* width: 100%; */
 }
 .custom-form .form-group input {
     /* width: 100%; */

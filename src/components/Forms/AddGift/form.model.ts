@@ -11,4 +11,4 @@ export const ADD_GIFT_SCHEMA = z
   })
   
 
-export type FormValues = z.infer<typeof ADD_GIFT_SCHEMA>;
+export type AddGiftFormValues = z.infer<typeof ADD_GIFT_SCHEMA>;
