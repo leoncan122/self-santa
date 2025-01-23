@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { createPortal } from "react-dom";
-import { useModalContext } from "../../context/ModalContext/modal.context";
+import { useModalContext } from "../../../context/ModalContext/modal.context";
 import "./Modal.css";
 
 interface ModalProps {

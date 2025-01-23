@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./Forms/Login/Login";
-import { Header } from "./Header/Header";
+import { Header } from "./Layout/Header/Header";
 import { Layout } from "./Forms";
 import { AuthProvider } from "../context/AuthContext/auth.provider";
 import { AuthGuard } from "../guards/AuthGuard";
-import { MyList } from "./List/MyList";
+import { MyList } from "./User/List/MyList";
 import { Funds } from "./Fund/Fund";
 import { AddGift } from "./Forms/AddGift/AddGift";
 import { ModalProvider } from "../context/ModalContext/modal.provider";

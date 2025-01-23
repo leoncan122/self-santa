@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Fund.css";
 import { useModalContext } from "../../context/ModalContext/modal.context";
-import { Modal } from "../Modal/Modal";
+import { Modal } from "../Layout/Modal/Modal";
 import { AddFunds } from "../Forms/AddFunds/AddFunds";
 
 export const FUNDS_LIST = [
@@ -25,6 +25,7 @@ export const FUNDS_LIST = [
 export const Funds = () => {
   const [funds, setFunds] = useState(154);
   const { isModalOpen, setIsModalOpen } = useModalContext();
+  
   const handleAddFunds = () => {
     console.log("Adding funds",isModalOpen);
     // setFunds(funds + 10); // Añade 10 al estado actual de fondos

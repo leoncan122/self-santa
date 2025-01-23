@@ -1,4 +1,4 @@
-import { Gift } from "../../models/gift.model";
+import { Gift } from "../models/gift.model";
 
 export const mockGifts: Gift[] = [
     {
