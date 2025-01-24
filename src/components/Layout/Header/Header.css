@@ -1,3 +1,7 @@
+.header-container {
+    position: relative;
+    display: flex;   
+}
 .header {
     background-color: #f8f9fa34;
     

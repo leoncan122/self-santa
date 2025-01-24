@@ -1,5 +1,4 @@
-import { MessageInterface } from "../components/Messaging/MessagingPublisher";
-
+import { MessageInterface } from "../models/notification.model";
 // Mock Messages
 export const messageMocks: MessageInterface[] = [
     {
@@ -26,7 +25,7 @@ export const notificationMocks: MessageInterface[] = [
             data: {
                 text: "Nuevo comentario en tu publicación.",
                 dateCreated: new Date("2025-01-22T09:00:00Z"),
-                link: "/post/12345",
+                amount: "$2345",
             },
         }
     },
@@ -37,7 +36,7 @@ export const notificationMocks: MessageInterface[] = [
             data: {
                 text: "Nuevo comentario en tu publicación.",
                 dateCreated: new Date("2025-01-24T09:00:00Z"),
-                link: "/post/12332",
+                amount: "$32",
             },
         }
     },

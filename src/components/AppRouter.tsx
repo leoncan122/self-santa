@@ -8,6 +8,7 @@ import { MyList } from "./User/List/MyList";
 import { Funds } from "./Fund/Fund";
 import { AddGift } from "./Forms/AddGift/AddGift";
 import { ModalProvider } from "../context/ModalContext/modal.provider";
+import { MessagingPanel } from "./Messaging/Messaging";
 // import { PrivateRouter } from "./private/PrivateRouter"
 export const AppRouter = () => {
   return (
@@ -55,6 +56,14 @@ export const AppRouter = () => {
                 element={
                   <Layout>
                     <center>Loading..</center>
+                  </Layout>
+                }
+              />
+               <Route
+                path={"/Messages"}
+                element={
+                  <Layout>
+                    <MessagingPanel />
                   </Layout>
                 }
               />

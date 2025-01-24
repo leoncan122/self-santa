@@ -9,7 +9,6 @@
     padding: 1.5rem 3rem;
     /* background-color: #fa3a3a4d; */
 }
-
 @media screen and (max-width: 768px) {
     .main-layout {
         min-width: 100%;

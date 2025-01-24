@@ -1,0 +1,21 @@
+.alert-overlay {
+    position: absolute;
+    top: 0px;
+    left: 110%;
+    width: 250px;
+    height: auto;
+    z-index: 10;
+    background-color: white;
+    color: black;
+    overflow: auto;
+    max-height: 500%;
+    padding: 1rem 1.25rem;
+
+}
+details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+details summary::-webkit-details-marker {
+    display: none;
+}

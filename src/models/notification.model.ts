@@ -1,4 +1,4 @@
-export type MessagePayload = {
+export interface MessagePayloadInterface  {
     id: string;
     data: {
         text: string;
@@ -7,11 +7,17 @@ export type MessagePayload = {
     }
 }
 
-export type NotificationPayload = {
+export interface NotificationPayloadInterface {
     id: string;
     data: {
         text: string;
+        amount: string;
         dateCreated: Date;
-        link: string;
+        from?: string;
     }
+}
+
+export interface MessageInterface  {
+    type: string
+    payload:  NotificationPayloadInterface | MessagePayloadInterface
 }
