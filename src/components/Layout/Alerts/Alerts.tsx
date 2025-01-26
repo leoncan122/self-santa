@@ -19,7 +19,7 @@ export const Alerts = () => {
     
         const unsubscribe = MessagingObservable.onMessageReceived().pipe(delay(2000)).subscribe(
           (message: MessageInterface) => {
-            console.log("Message received in alert", message);
+            // console.log("Message received in alert", message);
             setMessages((prevMessages) => [...prevMessages, message]);
             if (detailsRef.current) {
               detailsRef.current.open = true;
@@ -31,7 +31,7 @@ export const Alerts = () => {
           unsubscribe.unsubscribe();
 
         };
-      }, []);
+      }, [detailsRef]);
 
   return (
     <details className="alert-overlay" ref={detailsRef}>

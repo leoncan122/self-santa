@@ -1,4 +1,4 @@
-import { BehaviorSubject,  Observable} from "rxjs";
+import { BehaviorSubject,  Observable, range} from "rxjs";
 import { MessageInterface } from "../models/notification.model";
 import { messageMocks, notificationMocks } from "../mocks/notifications.mock";
 
@@ -22,7 +22,6 @@ class MessagingPublisher implements Publisher {
     }
 
     public notify (message: MessageInterface): void {
-        console.log("message passed", message)
         this.messages$.next(message)
     }
     
@@ -33,6 +32,11 @@ class MessagingPublisher implements Publisher {
     public onMessageReceived (): Observable<MessageInterface> {
         return this.messages$.asObservable()
     }
+
+    public onFundReceived (number?: number, count?: number) {
+        return range(number ||0, count)
+    }
+
 
 }
 

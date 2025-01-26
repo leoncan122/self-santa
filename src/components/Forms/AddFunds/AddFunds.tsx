@@ -19,26 +19,26 @@ export const AddFunds = () => {
     }); 
     
     const onSubmit: SubmitHandler<AddFundsFormValues> = async (data: AddFundsFormValues, event?: BaseSyntheticEvent) => {
-        console.log(data);
+        console.log("ejecutando on submit");
         if (event) {
             event.preventDefault();
         }
-        // try {
-        //     MessagingObservable.notify({
-        //         type: "notification",
-        //         payload: {
-        //             id: "notif134",
-        //             data: {
-        //                 text: `You have added ${data.amount} from ${data.from}`,
-        //                 amount: data.amount,
-        //                 dateCreated: new Date(),
-        //                 from: data.from
-        //             }
-        //         }
-        //     });
-        // } catch (error) {
-        //     console.error(error);
-        // }
+        try {
+            MessagingObservable.notify({
+                type: "notification",
+                payload: {
+                    id: "notif134",
+                    data: {
+                        text: `You have added ${data.amount} to your friend`,
+                        amount: data.amount,
+                        dateCreated: new Date(),
+                        from: data.from
+                    }
+                }
+            });
+        } catch (error) {
+            console.error(error);
+        }
         
     }   
     
@@ -61,11 +61,19 @@ export const AddFunds = () => {
                     label="Amount"
                     type="number"
                     error={errors.amount}
-                    min={0}
-                    max={9999}
+            
                 />
+                 <InputForm
+                    name="text"
+                    control={control}
+                    label="Message"
+                    type="text"
+                    error={errors.amount}
+            
+                />
+            
                 <Button type="submit" >Send</Button>
-               
+               {/* <button type="submit">Send</button> */}
 
             </form>
         </>

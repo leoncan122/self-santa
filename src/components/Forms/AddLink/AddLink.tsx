@@ -47,7 +47,7 @@ export const AddLink = () => {
           type="text"
           error={errors.url}
         />
-        <button onClick={handleVerifyLink} type="button" className="verify-btn">
+        <button onClick={handleSubmit(onSubmit)} type="button" className="verify-btn">
           verify link
         </button>
       </div>

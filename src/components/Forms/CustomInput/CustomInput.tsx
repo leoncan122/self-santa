@@ -12,12 +12,10 @@ interface Props {
     label: string;
     type: string;
     error: FieldError | undefined;
-    min?: number;
-    max?: number;
 }
 
 
-export const InputForm = ({ name, control, label, type, error, min=0, max=20}: Props) => {
+export const InputForm = ({ name, control, label, type, error}: Props) => {
     return (
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
@@ -29,8 +27,6 @@ export const InputForm = ({ name, control, label, type, error, min=0, max=20}: P
                         id={name}
                         type={type}
                         {...field}
-                        min={min}
-                        max={max}
                         className={`form-control ${error ? "is-invalid" : ""}`}
                     />
                 )}

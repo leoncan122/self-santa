@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Fund.css";
 import { useModalContext } from "../../context/ModalContext/modal.context";
 import { Modal } from "../Layout/Modal/Modal";
 import { AddFunds } from "../Forms/AddFunds/AddFunds";
-
+import { MessagingObservable } from "../../services/messaging.service";
+import { concatMap, delay, mapTo, observeOn, range, take, timer } from "rxjs";
+import { set } from "zod";
 export const FUNDS_LIST = [
   {
     id: 1,
@@ -20,31 +22,42 @@ export const FUNDS_LIST = [
     name: "John",
     amount: 300,
   },
-]
+];
 
 export const Funds = () => {
   const [funds, setFunds] = useState(154);
   const { isModalOpen, setIsModalOpen } = useModalContext();
-  
+
   const handleAddFunds = () => {
-    console.log("Adding funds",isModalOpen);
-    // setFunds(funds + 10); // Añade 10 al estado actual de fondos
     setIsModalOpen(!isModalOpen);
   };
+
+  useEffect(() => {
+      range(funds,150 + 1)
+      .pipe(
+        concatMap(value => timer(20).pipe(mapTo(value)))
+      )
+      .subscribe({
+        next: (fund) => setFunds(fund),
+        error: (error) => console.error("Error updating funds", error),
+        complete: () => console.log("Funds updated"),
+      });
+  }, []);
 
   return (
     <div className="container">
       <div className="funds-total">${funds}</div>
       {/* <p className="funds-display">Current Funds: ${funds}</p> */}
-     <div className="">
-      <button className="add-funds-btn" onClick={handleAddFunds}>
-          Help user get<br/> his dream gift
+      <div className="">
+        <button className="add-funds-btn" onClick={handleAddFunds}>
+          Help this person get
+          <br /> his dream gift
         </button>
-      <Modal>
-        <h2>Thank you for supporting me!</h2>
-        <AddFunds />
-      </Modal>
-     </div>
+        <Modal>
+          <h2>Thank you for supporting me!</h2>
+          <AddFunds />
+        </Modal>
+      </div>
       <div className="funds-list-container">
         <h2>Last supports </h2>
         <ul className="funds-list">

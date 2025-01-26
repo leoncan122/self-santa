@@ -36,12 +36,13 @@
 
   }
   .add-funds-btn {
-    background: #4caf50;
+    background: transparent;
     color: rgb(40, 39, 39);
-    font-weight: 700;
-    border: 5px dotted rgba(219, 221, 216, 0.79);
+    border: 1px solid rgba(219, 221, 216, 0.79);
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+    line-height: 1.3rem;
+    font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -49,11 +50,12 @@
   }
   
   .add-funds-btn:hover {
-    background: #45a049;
+    background: var(--color-primary);
+    color: aliceblue;
   }
   
   .add-funds-btn:active {
-    background: #3e8e41;
+    background: transparent;
   }
   
   .funds-list {
