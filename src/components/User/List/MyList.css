@@ -1,13 +1,9 @@
 .my-list-container {
     max-width: 800px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
   }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+
   
   .my-list-container button {
     display: block;
@@ -96,7 +92,13 @@
     background-color: #6d1bd8ae;
   }
 
+@media screen and (max-width: 768px) {
+    .gift-list {
+      flex-direction: column;
 
+    }
+  
+}
   /* /* To style the document scrollbar, remove `.custom-scrollbar` */
 .custom-scrollbar::-webkit-scrollbar {
     width: 5px;

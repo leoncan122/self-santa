@@ -14,6 +14,18 @@
 }
 
 .modal {
-    background-color: rgb(212, 255, 181);
-    padding: 16px;
+    background-color: rgba(212, 255, 181, 0.632);
+    backdrop-filter: blur(5px);
+    padding: 2rem 5rem;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+    font-size: 21px;
+    text-align: end;
+    display: block;
+    /* width: 100%; */
 }

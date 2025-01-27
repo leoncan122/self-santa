@@ -27,3 +27,9 @@
     font-weight: 600;
     color: rgb(82, 255, 119);
 }
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #181a1b;
+}

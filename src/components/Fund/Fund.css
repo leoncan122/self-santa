@@ -1,25 +1,36 @@
 
-  .container {
-    text-align: center;
-    background: #bef1b8f0;
-    color: #000;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: grid;
-    grid-template-areas: "price price cta"
-                          "price price cta"
-                          "list list list";
-    grid-template-rows: repeat(3, minmax(0.4fr, 1fr));
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
+.funds-page {
+  text-align: center;
+  background: #aaeca3f0;
+  color: #000;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-areas: "price price cta"
+                        "price price cta"
+                        "list list list";
+  grid-template-rows: repeat(3, minmax(0.4fr, 1fr));
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
 }
-  
+@media  (max-width: 768px) {
+  .funds-page {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+
+
   /* .container h1 {
     font-size: 2.5rem;
     color: #0f0e46;
     margin-bottom: 1rem;
   } */
-
+  .fund-greeting {
+    color: var(--color-primary);
+  }
   .funds-total {
     font-size: 5.5rem;
     color: #0f0e46;
@@ -33,20 +44,36 @@
   }
   .funds-list-container {
     grid-area: list;
-
+    padding: 0 3.5rem;
+  }
+  .add-funds-container {
+    grid-area: cta;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  @media screen and (max-width: 768px) {
+    .funds-list-container {
+      padding: 0 1.5rem;
+    }
+    .add-funds-container {
+      padding: 0 1.5rem;
+    }
+    
   }
   .add-funds-btn {
     background: transparent;
     color: rgb(40, 39, 39);
     border: 1px solid rgba(219, 221, 216, 0.79);
     padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    line-height: 1.3rem;
+    font-size: 1.1rem;
+    /* line-height: 1.3rem; */
     font-weight: 500;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
-    grid-area: cta;
+    
   }
   
   .add-funds-btn:hover {
@@ -58,23 +85,82 @@
     background: transparent;
   }
   
+.funds-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: flex-start;
+  padding: 0;
+  gap: 1rem;
+  overflow: auto;
+  margin-top: 3.25rem;
+  padding-bottom: 2.2rem;
+}
+
+.funds-list > li {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  /* align-items:  center; */
+  padding: 2rem 3rem;
+  /* background-color: #ffffff99; */
+  border-top: 1px dashed black;
+}
+.funds-details, .funds-info {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  /* gap: 1rem; */
+}
+.funds-details {
+  align-items: start;
+  grid-column-start: 1 ;
+  grid-column-end: 3;
+}
+.funds-info {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: column;
+  
+} 
+.funds-details .fund-name{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f0e46;
+  
+}
+.funds-info .fund-date{
+  
+}
+.funds-info  .fund-amount {
+  font-size: 2.40rem;
+  font-weight: 900;
+}
+@media screen and (max-width: 768px) {
   .funds-list {
-    list-style-type: none;
     display: flex;
     flex-direction: column;
-    padding: 0;
-    gap: 1rem;
-    overflow: auto;
-    margin-top: 3.25rem;
-    padding-bottom: 2.2rem;
   }
-.funds-list > li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.25rem 1rem;
-  /* background-color: #ffffff99; */
-  border: 2px  #554c4c9e;
-  border-style: dashed solid;
-  border-radius: 10px;
-} 
+  .funds-list > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    gap: 1rem;
+    padding: 0.7rem 1rem;
+  }
+  .funds-info {
+    display: flex;
+    /* flex-direction: column-reverse; */
+  }
+  .fund-amount {
+    font-size: 2rem;
+  }
+  .fund-date {
+    font-size: 0.75rem;
+  }
+  .fund-text {
+    margin-top: auto;
+  }
+}

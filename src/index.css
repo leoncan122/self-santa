@@ -5,6 +5,9 @@
 
   color-scheme: light dark;
   --color-primary: #0d4d38f5;
+  --color-neutro: rgb(61, 61, 61);
+  --color-secondary: #bef1b8f0;
+  --color-contrast: #4e03b0ae;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,6 +27,11 @@ body {
   min-width: 320px;
   width: 100vw;
   min-height: 100vh; */
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 #root {
   width: 100%;

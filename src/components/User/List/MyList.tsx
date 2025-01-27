@@ -11,10 +11,10 @@ export const MyList = () => {
 
     return (
       <div className="my-list-container">
-      <h1>Lista de Regalos</h1>
-      <button >
-        <Link to={'/add-gift'} >Add new gift</Link>
-      </button>
+      <h1>The gift that i want</h1>
+      {/* <button > */}
+        {/* <Link to={'/add-gift'} >Add new gift</Link> */}
+      {/* </button> */}
       <ul className="gift-list custom-scrollbar">
         {gifts.map((gift, index) => (
           <li key={index} className="gift-item">

@@ -3,24 +3,29 @@ import "./Fund.css";
 import { useModalContext } from "../../context/ModalContext/modal.context";
 import { Modal } from "../Layout/Modal/Modal";
 import { AddFunds } from "../Forms/AddFunds/AddFunds";
-import { MessagingObservable } from "../../services/messaging.service";
-import { concatMap, delay, mapTo, observeOn, range, take, timer } from "rxjs";
-import { set } from "zod";
+// import { MessagingObservable } from "../../services/messaging.service";
+import { concatMap, mapTo, range, timer } from "rxjs";
 export const FUNDS_LIST = [
   {
     id: 1,
     name: "Anonymus 1",
     amount: 100,
+    date: "2021-10-10T13:42:00",
+    text: "you do it great",
   },
   {
     id: 2,
     name: "Marcos",
     amount: 200,
+    date: "2021-10-10T13:42:00",
+    text: "you do it great",
   },
   {
     id: 3,
     name: "John",
     amount: 300,
+    date: "2021-10-10T13:42:00",
+    text: "you do it great",
   },
 ];
 
@@ -45,16 +50,16 @@ export const Funds = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="funds-page">
       <div className="funds-total">${funds}</div>
       {/* <p className="funds-display">Current Funds: ${funds}</p> */}
-      <div className="">
+      <div className="add-funds-container">
         <button className="add-funds-btn" onClick={handleAddFunds}>
-          Help this person get
-          <br /> his dream gift
+          Help this person<br/> get
+          his<br />  dream gift
         </button>
         <Modal>
-          <h2>Thank you for supporting me!</h2>
+          <h2 className="fund-greeting">Thank you for supporting me!</h2>
           <AddFunds />
         </Modal>
       </div>
@@ -63,8 +68,16 @@ export const Funds = () => {
         <ul className="funds-list">
           {FUNDS_LIST.map((fund) => (
             <li key={fund.id}>
-              <p>{fund.name}</p>
-              <p>${fund.amount}</p>
+              <div className="funds-details">
+                <p className="fund-name">{fund.name}</p>
+                <p className="fund-text">{fund.text}</p>
+
+              </div>
+              <div className="funds-info">
+                <p className="fund-amount">${fund.amount}</p>
+                <p className="fund-date">{fund.date ? new Date(fund?.date).toLocaleDateString('en-US', {day: 'numeric', month: 'short',hour: 'numeric'}) : '-'}</p>
+
+              </div>
             </li>
           ))}
         </ul>

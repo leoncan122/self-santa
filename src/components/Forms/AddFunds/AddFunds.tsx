@@ -6,6 +6,8 @@ import { SubmitHandler, useForm,  } from "react-hook-form";
 import { Button } from "../../Button/Button";
 import { MessagingObservable } from "../../../services/messaging.service";
 import { BaseSyntheticEvent } from "react";
+import './AddFunds.css';
+
 export const AddFunds = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<AddFundsFormValues>({
         resolver: zodResolver(ADD_FUNDS_SCHEMA),
@@ -19,7 +21,6 @@ export const AddFunds = () => {
     }); 
     
     const onSubmit: SubmitHandler<AddFundsFormValues> = async (data: AddFundsFormValues, event?: BaseSyntheticEvent) => {
-        console.log("ejecutando on submit");
         if (event) {
             event.preventDefault();
         }
@@ -71,9 +72,10 @@ export const AddFunds = () => {
                     error={errors.amount}
             
                 />
-            
-                <Button type="submit" >Send</Button>
-               {/* <button type="submit">Send</button> */}
+                <div className="form-buttons">
+                    <Button type="reset" >Cancel</Button>
+                    <Button type="submit" >Send</Button>
+                </div>            
 
             </form>
         </>

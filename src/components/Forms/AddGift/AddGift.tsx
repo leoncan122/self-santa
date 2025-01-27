@@ -7,6 +7,7 @@ import { useApi } from "../../../hooks/useApi";
 import './AddGift.css';
 import { addGift } from "../../../services/gifts.service";
 import { AddLink } from "../AddLink";
+import { Link } from "react-router-dom";
 
 export const AddGift = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<AddGiftFormValues>({
@@ -32,10 +33,12 @@ export const AddGift = () => {
     }
 
     return (
-        <>
+        <section className="addgift-page">
             <h1>
-                Add a new gift
+               Lets add a new gift
             </h1>
+            <h3>Encourage your friends to support you</h3>
+
             <form className="custom-form" onSubmit={handleSubmit(onSubmit)}>
                 <AddLink />
                 <InputForm
@@ -70,7 +73,7 @@ export const AddGift = () => {
                     Add
                 </button>
             </form>
-        </>
+        </section>
     );
 }
 
