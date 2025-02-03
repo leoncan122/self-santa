@@ -7,7 +7,6 @@ import { useApi } from "../../../hooks/useApi";
 import './AddGift.css';
 import { addGift } from "../../../services/gifts.service";
 import { AddLink } from "../AddLink";
-import { Link } from "react-router-dom";
 
 export const AddGift = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<AddGiftFormValues>({
@@ -20,6 +19,8 @@ export const AddGift = () => {
 
     const onSubmit: SubmitHandler<AddGiftFormValues> = (data: AddGiftFormValues) => {
         console.log(data);
+        // const url = '';
+        // fetch(url, data);
     };
 
     
