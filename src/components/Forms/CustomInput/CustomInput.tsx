@@ -1,13 +1,16 @@
-import { Control, Controller, FieldError } from "react-hook-form";
+import { Control, Controller, FieldError, FieldValues } from "react-hook-form";
 import './CustomInput.css';
 import { AddLinkFormValues } from "../AddLink/form.model";
 import { AddFundsFormValues } from "../AddFunds/form.model";
 import { AddGiftFormValues } from "../AddGift/form.model";
 
 export type FormValues = AddLinkFormValues | AddFundsFormValues | AddGiftFormValues;
-export type FormKeys = "name" | "amount" | "from" | "date" | "title" | "price" | "description" | "text" | "url" ;
-interface Props {
-    name: FormKeys;
+import { Path } from "react-hook-form";
+
+export type FormKeys = 'amount' | 'from' | "date" | "title" | "price" | "description" | "text" | "url" | "email" | "password" | "confirmPassword" | "name";
+
+interface Props<FormValues extends FieldValues> {
+    name: Path<FormValues>;
     control: Control<FormValues>;
     label: string;
     type: string;
@@ -15,7 +18,7 @@ interface Props {
 }
 
 
-export const InputForm = ({ name, control, label, type, error}: Props) => {
+export const InputForm = <T extends FormValues>({ name, control, label, type, error}: Props<T>) => {
     return (
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
@@ -23,12 +26,13 @@ export const InputForm = ({ name, control, label, type, error}: Props) => {
                 name={name}
                 control={control}
                 render={({ field }) => (
-                    <input
-                        id={name}
-                        type={type}
-                        {...field}
-                        className={`form-control ${error ? "is-invalid" : ""}`}
-                    />
+                        <input
+                            id={name}
+                            type={type}
+                            {...field}
+                            value={field.value instanceof Date ? field.value.toISOString().split('T')[0] : field.value}
+                            className={`form-control ${error ? "is-invalid" : ""}`}
+                        />
                 )}
             />
             {error && <div className="error">{error.message}</div>}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { UseApi } from "../models/useApi.model";
 
 type Data<T> = T | null;
 
@@ -17,8 +18,8 @@ type Options<P> = {
     autoFetch?: boolean;
 } & (P extends null ?  { params?: P} : { params: P });
 
-export const useApi= <T, P>(call: (params?: P) => void, options?: Options<P> ): useApiResults<T, P> => {
-    const [data, setData] = useState<Data<T>>(null);
+export const useApi= <T, P>(call: () => UseApi<P>, options?: Options<P> ): useApiResults<T, P> => {
+    const [data] = useState<Data<T>>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>(null);
 
@@ -29,8 +30,10 @@ export const useApi= <T, P>(call: (params?: P) => void, options?: Options<P> ): 
         setLoading(true);
         setError(null);
         try {
-            const res = call(params);
-            setData(res.data);
+            const res = await call.call(params);
+            console.log(res);
+            // setData(res);
+
         } catch (error) {
             setError(error as Error);
         } finally {
@@ -38,7 +41,7 @@ export const useApi= <T, P>(call: (params?: P) => void, options?: Options<P> ): 
         }
         return () => controller.abort();
 
-    }, []);
+    }, [call]);
 
     useEffect(() => {
         if (options?.autoFetch) {

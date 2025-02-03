@@ -5,16 +5,15 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ADD_GIFT_SCHEMA } from "./form.model";
 import { useApi } from "../../../hooks/useApi";
 import './AddGift.css';
-import { addGift } from "../../../services/gifts.service";
+import { addGift, AddGiftParams } from "../../../services/gifts.service";
 import { AddLink } from "../AddLink";
-
 export const AddGift = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<AddGiftFormValues>({
         resolver: zodResolver(ADD_GIFT_SCHEMA),
         mode: 'onBlur',
     }); 
     
-    const {data, loading, error, fetch} = useApi<AddGiftFormValues, null>(addGift, {autoFetch: false});
+    const {loading, error} = useApi<AddGiftFormValues,AddGiftParams>(addGift, {autoFetch: false, params: {title: '', description: '', price: 0, link: ''}});
 
 
     const onSubmit: SubmitHandler<AddGiftFormValues> = (data: AddGiftFormValues) => {
