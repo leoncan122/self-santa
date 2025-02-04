@@ -18,21 +18,24 @@ type Options<P> = {
     autoFetch?: boolean;
 } & (P extends null ?  { params?: P} : { params: P });
 
-export const useApi= <T, P>(call: () => UseApi<P>, options?: Options<P> ): useApiResults<T, P> => {
-    const [data] = useState<Data<T>>(null);
+export const useApi= <T, P>(call: (params?: P) => UseApi<T>, options?: Options<P> ): useApiResults<T, P> => {
+    const [data, setData] = useState<Data<T>>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>(null);
 
-
+    console.log("Data", data);
     const fetch = useCallback(async (params?: P) => {
         const controller = new AbortController();
 
         setLoading(true);
         setError(null);
         try {
-            const res = await call.call(params);
-            console.log(res);
-            // setData(res);
+         await call(params).call().then((res)  => {
+            setData({
+                ...res.data,
+            });
+         });
+
 
         } catch (error) {
             setError(error as Error);
