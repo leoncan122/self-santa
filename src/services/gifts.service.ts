@@ -15,7 +15,7 @@ export interface AddLinkParams {
    
 }
 
-interface GiftResponse {
+export interface GiftResponse {
     title: string;
     description: string;
     // image: string;
@@ -26,7 +26,7 @@ export const  getGiftList = async (): Promise<UseApi<Gift[]>> => {
     const controller = loadAbortController();
 
     return {
-        call: axios.get<Gift[]>('http://localhost:3001/gifts'),
+        call: () => axios.get<Gift[]>('http://localhost:3001/gifts'),
         controller        
     }
 }
@@ -35,16 +35,16 @@ export const addLink = (params?: AddLinkParams): UseApi<GiftResponse> => {
     const controller = loadAbortController();
     
     return {
-        call: axios.post<AddGiftParams>('http://localhost:3001/links/check', params, { signal: controller.signal }),
+        call: () => axios.post<AddGiftParams>('http://localhost:3001/links/check', params, { signal: controller.signal }),
         controller
     };
 }
 
 export const addGift = (params?: AddGiftParams): UseApi<AddGiftParams> => {
     const controller = loadAbortController();
-
+    // const promise = 
     return {
-        call: axios.post('http://localhost:3001/gifts', params, { signal: controller.signal }),
+        call: () => axios.post('http://localhost:3001/gifts', params, { signal: controller.signal }),
         controller
     };
 }

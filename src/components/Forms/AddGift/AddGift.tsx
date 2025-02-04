@@ -5,21 +5,21 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ADD_GIFT_SCHEMA } from "./form.model";
 import { useApi } from "../../../hooks/useApi";
 import './AddGift.css';
-import { addGift, AddGiftParams } from "../../../services/gifts.service";
-import { AddLink } from "../AddLink";
+import { addGift, AddGiftParams, GiftResponse } from "../../../services/gifts.service";
+// import { AddLink } from "../AddLink";
 export const AddGift = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<AddGiftFormValues>({
         resolver: zodResolver(ADD_GIFT_SCHEMA),
         mode: 'onBlur',
     }); 
     
-    const {loading, error} = useApi<AddGiftFormValues,AddGiftParams>(addGift, {autoFetch: false, params: {title: '', description: '', price: 0, link: ''}});
-
+    const {loading, error, fetch} = useApi<GiftResponse,AddGiftParams>(addGift, {autoFetch: false, params: {title: '', description: '', price: 0, link: ''}});
+    
 
     const onSubmit: SubmitHandler<AddGiftFormValues> = (data: AddGiftFormValues) => {
-        console.log(data);
+        console.log("enviando formulario", data);
         // const url = '';
-        // fetch(url, data);
+        fetch();
     };
 
     
@@ -40,7 +40,7 @@ export const AddGift = () => {
             <h3>Encourage your friends to support you</h3>
 
             <form className="custom-form" onSubmit={handleSubmit(onSubmit)}>
-                <AddLink />
+                {/* <AddLink /> */}
                 <InputForm
                     name="title"
                     control={control}
@@ -52,7 +52,7 @@ export const AddGift = () => {
                     name="price"
                     control={control}
                     label="Price"
-                    type="number"
+                    type="text"
                     error={errors.price}
                 />
                 <InputForm
@@ -62,13 +62,6 @@ export const AddGift = () => {
                     type="text"
                     error={errors.description}
                 />
-                {/* <InputForm
-                    name="confirmPassword"
-                    control={control}
-                    label="Confirm Password"
-                    type="password"
-                    error={errors.confirmPassword}
-                /> */}
                 <button type="submit" className="btn btn-primary">
                     Add
                 </button>

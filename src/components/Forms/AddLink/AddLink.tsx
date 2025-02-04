@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ADD_LINK } from "./form.model";
 import { useApi } from "../../../hooks/useApi";
 import "./AddLink.css";
-import { addLink, AddLinkParams } from "../../../services/gifts.service";
+import { addLink, AddLinkParams, GiftResponse } from "../../../services/gifts.service";
 
 export const AddLink = () => {
   const {
@@ -17,7 +17,7 @@ export const AddLink = () => {
     mode: "onBlur",
   });
 
-  const { data, loading, error, fetch } = useApi<AddLinkFormValues, AddLinkParams>(addLink, {
+  const { data, loading, error, fetch } = useApi<GiftResponse, AddLinkParams>(addLink, {
     autoFetch: false,
     params: { link: "" },
   });
@@ -26,7 +26,6 @@ export const AddLink = () => {
       const params: AddLinkParams = { link: data.url };
       fetch(params);
   };
-  console.log(data);
 
 
   if (loading) {
