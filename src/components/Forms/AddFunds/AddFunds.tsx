@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ADD_FUNDS_SCHEMA } from "./form.model";
 import { AddFundsFormValues } from "./form.model";
 import { SubmitHandler, useForm,  } from "react-hook-form";
-import { Button } from "../../Buttons/Button";
+import { Button } from "../../Layout/Buttons/Button";
 import { MessagingObservable } from "../../../services/messaging.service";
 import { BaseSyntheticEvent } from "react";
 import './AddFunds.css';

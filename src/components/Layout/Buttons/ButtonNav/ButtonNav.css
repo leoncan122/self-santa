@@ -1,0 +1,13 @@
+.button-list {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s ease-out;
+    font-size: 32px;
+    border: none;
+}
+
+.button-list.active {
+    background-color: var(--color-primary);
+    color: white;
+}

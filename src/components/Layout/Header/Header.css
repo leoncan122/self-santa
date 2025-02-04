@@ -22,23 +22,7 @@
     margin: 0;
 }
 
-.nav-item {
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 0.75rem;
-    transition: background-color 0.3s ease;
-    font-size: 32px;
-    
-}
 
-.nav-item:hover {
-    background-color: #e2e6ea;
-}
-
-.nav-item.active {
-    background-color: var(--color-primary);
-    color: white;
-}
 
 .notification-wrapper {
     font-size: 32px;
