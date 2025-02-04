@@ -23,16 +23,15 @@ export const useApi= <T, P>(call: (params?: P | undefined) => UseApi<T>, options
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>(null);
 
-    const fetch = useCallback(async () => {
+    const fetch = useCallback(async (params?: P) => {
         const controller = new AbortController();
 
         setLoading(true);
         setError(null);
         try {
-         const { call: apiCall } = call(options?.params);
+         const { call: apiCall } = call(params);
          
          await apiCall().then((res)  => {
-            console.log("res", res);
             setData({
                 ...res.data,
             });
