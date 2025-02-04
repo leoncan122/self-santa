@@ -7,8 +7,8 @@ import { Gift } from "../models/gift.model";
 export interface AddGiftParams {
     title: string;
     description: string;
-    price: number;
-    link: string;
+    price: string;
+    url: string;
 }
 export interface AddLinkParams {
     link?: string;
@@ -18,15 +18,14 @@ export interface AddLinkParams {
 export interface GiftResponse {
     title: string;
     description: string;
-    // image: string;
-    price: number;
+    price: string;
     link: string;
 }
-export const  getGiftList = async (): Promise<UseApi<Gift[]>> => {
+export const  getGiftList = async (): UseApi<Gift[]> => {
     const controller = loadAbortController();
 
     return {
-        call: () => axios.get<Gift[]>('http://localhost:3001/gifts'),
+        call: async () => axios.get<Gift[]>('http://localhost:8000/gifts'),
         controller        
     }
 }
@@ -35,16 +34,15 @@ export const addLink = (params?: AddLinkParams): UseApi<GiftResponse> => {
     const controller = loadAbortController();
     
     return {
-        call: () => axios.post<AddGiftParams>('http://localhost:3001/links/check', params, { signal: controller.signal }),
+        call: async () => await axios.post('http://localhost:8000/links/check', params, { signal: controller.signal }),
         controller
     };
 }
 
-export const addGift = (params?: AddGiftParams): UseApi<AddGiftParams> => {
+export const addGift = (params?: AddGiftParams | undefined): UseApi<GiftResponse> => {
     const controller = loadAbortController();
-    // const promise = 
     return {
-        call: () => axios.post('http://localhost:3001/gifts', params, { signal: controller.signal }),
+        call: async () => await axios.post('http://localhost:8000/gifts', params, { signal: controller.signal }),
         controller
     };
 }

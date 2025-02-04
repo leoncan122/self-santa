@@ -12,15 +12,18 @@ export const AddGift = () => {
         resolver: zodResolver(ADD_GIFT_SCHEMA),
         mode: 'onBlur',
     }); 
-    
-    const {loading, error, fetch} = useApi<GiftResponse,AddGiftParams>(addGift, {autoFetch: false, params: {title: '', description: '', price: 0, link: ''}});
-    
+    const params: AddGiftParams = {
+      title: 'Example Gift',
+      price: '20.00',
+      description: 'This is an example gift',
+      url: 'http://example.com'
+    };
+    const {data, loading, error, fetch} = useApi<GiftResponse,AddGiftParams>(addGift, {autoFetch: false, params});
 
     const onSubmit: SubmitHandler<AddGiftFormValues> = (data: AddGiftFormValues) => {
-        console.log("enviando formulario", data);
-        // const url = '';
+        console.log("enviando formulario", data, fetch);
         fetch();
-    };
+      };
 
     
 
@@ -61,6 +64,13 @@ export const AddGift = () => {
                     label="Description"
                     type="text"
                     error={errors.description}
+                />
+                <InputForm
+                  name="url"
+                  control={control}
+                  label="Url"
+                  type="text"
+                  error={errors.url}
                 />
                 <button type="submit" className="btn btn-primary">
                     Add

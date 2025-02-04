@@ -7,6 +7,7 @@ import { useApi } from "../../../hooks/useApi";
 import "./AddLink.css";
 import { addLink, AddLinkParams, GiftResponse } from "../../../services/gifts.service";
 
+
 export const AddLink = () => {
   const {
     control,
@@ -26,7 +27,6 @@ export const AddLink = () => {
       const params: AddLinkParams = { link: data.url };
       fetch(params);
   };
-
 
   if (loading) {
     return <div>Loading...</div>;
