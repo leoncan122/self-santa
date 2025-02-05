@@ -1,4 +1,5 @@
 import { MessagingObservable } from "../../services/messaging.service";
+import PageViewWrapper from "../Layout/PageViewWrapper/PageViewWrapper";
 export const MessagingPanel = () => {
     
     const handleNotification = () => {
@@ -17,9 +18,9 @@ export const MessagingPanel = () => {
       
     }
     return (
-        <div>
-            <h1>Messaging Panel</h1>
+        <PageViewWrapper>
+            <h2>Messaging Panel</h2>
             <button onClick={handleNotification}>Send Message</button>
-        </div>
+        </PageViewWrapper>
     )
 }
