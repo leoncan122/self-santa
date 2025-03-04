@@ -3,11 +3,13 @@ import './CustomInput.css';
 import { AddLinkFormValues } from "../AddLink/form.model";
 import { AddFundsFormValues } from "../AddFunds/form.model";
 import { AddGiftFormValues } from "../AddGift/form.model";
-
-export type FormValues = AddLinkFormValues | AddFundsFormValues | AddGiftFormValues;
 import { Path } from "react-hook-form";
+import { LoginFormValues } from "../Login";
+export type FormValues = AddLinkFormValues | AddFundsFormValues | AddGiftFormValues | LoginFormValues;
 
-export type FormKeys = 'amount' | 'from' | "date" | "title" | "price" | "description" | "text" | "url" | "email" | "password" | "confirmPassword" | "name";
+export type FormKeys = keyof AddLinkFormValues | keyof AddFundsFormValues | keyof AddGiftFormValues;
+
+// export type FormKeys = "amount" | "from" | "date" | "title" | "price" | "description" | "text" | "url" | "email" | "password" | "confirmPassword" | "name";
 
 interface Props<FormValues extends FieldValues> {
     name: Path<FormValues>;

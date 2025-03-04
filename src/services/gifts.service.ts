@@ -2,7 +2,7 @@ import axios from "axios";
 // import { FormValues } from "../components/Forms/AddLink/form.model";
 import { UseApi } from "../models/useApi.model";
 import { loadAbortController } from "../utils/loadAbortController.utilities";
-import { Gift } from "../models/gift.model";
+// import { Gift } from "../models/gift.model";
 
 export interface AddGiftParams {
     title: string;
@@ -21,11 +21,11 @@ export interface GiftResponse {
     price: string;
     link: string;
 }
-export const  getGiftList = async (): UseApi<Gift[]> => {
+export const getGiftList = (): UseApi<GiftResponse> => {
     const controller = loadAbortController();
 
     return {
-        call: async () => axios.get<Gift[]>('http://localhost:8080/gifts'),
+        call: async () => await axios.get('http://localhost:8080/gifts', { signal: controller.signal }),
         controller        
     }
 }

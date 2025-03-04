@@ -18,7 +18,7 @@ export const AddLink = () => {
     mode: "onBlur",
   });
 
-  const { data, loading, error, fetch } = useApi<GiftResponse, AddLinkParams>(addLink, {
+  const { loading, error, fetch } = useApi<GiftResponse, AddLinkParams>(addLink, {
     autoFetch: false,
     params: { link: "" },
   });
