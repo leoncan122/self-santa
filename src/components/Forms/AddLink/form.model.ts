@@ -11,4 +11,4 @@ export const ADD_LINK = z
   })
   
 
-export type FormValues = z.infer<typeof ADD_LINK>;
+export type AddLinkFormValues = z.infer<typeof ADD_LINK>;

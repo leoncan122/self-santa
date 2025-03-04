@@ -1,0 +1,9 @@
+.block-transparent {
+    border-radius: 0.75rem;
+
+}
+.block-transparent:hover {
+    background-color: var(--color-primary);
+
+}
+

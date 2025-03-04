@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { emptyGift, Gift } from "../../../models/gift.model";
-import { mockGifts } from "../../mocks/gifts.mock";
+import {  Gift } from "../../../models/gift.model";
+import { mockGifts } from "../../../mocks/gifts.mock";
 import './MyList.css'
-import { Link } from "react-router-dom";
+
+
 export const MyList = () => {
-  const [gifts, setGifts] = useState<Gift[]>(mockGifts);
+  const [gifts,] = useState<Gift[]>(mockGifts);
 
 
     return (
       <div className="my-list-container">
-      <h2>Lista de Regalos</h2>
-      <button >
-        <Link to={'/add-gift'} >Add new gift</Link>
-      </button>
+      <h1>The gift that i want</h1>
+      {/* <button > */}
+        {/* <Link to={'/add-gift'} >Add new gift</Link> */}
+      {/* </button> */}
       <ul className="gift-list custom-scrollbar">
         {gifts.map((gift, index) => (
           <li key={index} className="gift-item">

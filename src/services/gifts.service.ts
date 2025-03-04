@@ -1,44 +1,48 @@
 import axios from "axios";
-import { FormValues } from "../components/Forms/AddLink/form.model";
+// import { FormValues } from "../components/Forms/AddLink/form.model";
 import { UseApi } from "../models/useApi.model";
 import { loadAbortController } from "../utils/loadAbortController.utilities";
-import { Gift } from "../models/gift.model";
+// import { Gift } from "../models/gift.model";
 
-interface AddGift {
+export interface AddGiftParams {
     title: string;
     description: string;
-    price: number;
-    link: string;
+    price: string;
+    url: string;
 }
-interface GiftResponse {
+export interface AddLinkParams {
+    link?: string;
+   
+}
+
+export interface GiftResponse {
     title: string;
     description: string;
-    // image: string;
-    price: number;
+    price: string;
     link: string;
 }
-export const getGiftList =  (): UseApi<Gift[]> => {
+export const getGiftList = (): UseApi<GiftResponse> => {
     const controller = loadAbortController();
 
     return {
-        call: axios.get<Gift[]>('http://localhost:3001/gifts'),
+        call: async () => await axios.get('http://localhost:8080/gifts', { signal: controller.signal }),
         controller        
     }
 }
 
-export const addLink = (link: string): UseApi<GiftResponse> => {
+export const addLink = (params?: AddLinkParams): UseApi<GiftResponse> => {
     const controller = loadAbortController();
+    
     return {
-        call: axios.post<AddGift>('http://localhost:3001/links/check', {link}, { signal: controller.signal }),
+        call: async () => await axios.post('http://localhost:8080/links/check', params, { signal: controller.signal }),
         controller
     };
 }
 
-export const addGift = async (gift: AddGift) => {
+export const addGift = (params?: AddGiftParams | undefined): UseApi<GiftResponse> => {
     const controller = loadAbortController();
-
     return {
-        call: axios.post<AddGift>('http://localhost:3001/gifts', gift, { signal: controller.signal }),
+        call: async () => await axios.post('http://localhost:8080/gifts', params, { signal: controller.signal }),
         controller
     };
 }

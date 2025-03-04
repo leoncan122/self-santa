@@ -1,0 +1,36 @@
+
+.alert-overlay {
+    position: absolute;
+    top: 0px;
+    left: 110%;
+    width: auto;
+    height: auto;
+    z-index: 10;
+    background-color: white;
+    color: black;
+    overflow: auto;
+    max-height: 500%;
+    padding: 1rem 1.25rem;
+    width: 250px;
+}
+details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .alert-overlay {
+        display: none;
+    }
+    details > summary {
+        list-style: none;
+        cursor: pointer;
+    }
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+    
+}

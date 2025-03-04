@@ -1,26 +1,28 @@
 
-import { FormValues } from "./form.model";
+import { LoginFormValues } from "./form.model";
 import { InputForm } from "../CustomInput/CustomInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { schema } from "./form.model";
+import './Login.css';
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const Login = () => {
-    const { control, handleSubmit, formState: {errors}} = useForm<FormValues>({
-      zodResolver: schema,
+    const { control, handleSubmit, formState: {errors}} = useForm<LoginFormValues>({
+      resolver: zodResolver(schema),
         mode: 'onBlur',
     });
 
 
-    const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+    const onSubmit: SubmitHandler<LoginFormValues> = (data: LoginFormValues) => {
         console.log(data);
     }
 
 
     return (
-        <main>
+        <section className="login-page">
             <h1>Login</h1>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="custom-form login-form" onSubmit={handleSubmit(onSubmit)}>
                 <InputForm
                     name="name"
                     control={control}
@@ -53,6 +55,6 @@ export const Login = () => {
                     Submit
                 </button>
             </form>
-        </main>
+        </section>
     )
 }

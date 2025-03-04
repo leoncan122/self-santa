@@ -1,0 +1,6 @@
+.funds-total {
+    font-size: 5.5rem;
+    color: #0f0e46;
+    font-weight: 800;
+    grid-area: price;
+  }

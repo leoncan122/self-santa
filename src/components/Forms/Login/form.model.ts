@@ -12,4 +12,4 @@ export const schema = z
         message: "Passwords are different",
     });
 
-export type FormValues = z.infer<typeof schema>;
+export type LoginFormValues = z.infer<typeof schema>;

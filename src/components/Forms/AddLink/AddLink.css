@@ -3,16 +3,17 @@
     border: none;
     border-radius: 5px;
     flex-grow: 0;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    color: #161515;
-    background-color: #007bff;
+    color: #fff;
+    background-color: #4e03b0ae;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .custom-form .url-form {
     display: flex;
     align-items: center;
     justify-content: start; 
-     width: 100%;
+    gap: 3rem;
 }

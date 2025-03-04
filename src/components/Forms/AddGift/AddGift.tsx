@@ -1,27 +1,34 @@
-import { FormValues } from "./form.model";
+import { AddGiftFormValues } from "./form.model";
 import { zodResolver } from "@hookform/resolvers/zod";
 import  { InputForm } from "../CustomInput/CustomInput";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ADD_GIFT_SCHEMA } from "./form.model";
 import { useApi } from "../../../hooks/useApi";
 import './AddGift.css';
-import { addGift } from "../../../services/gifts.service";
-import { AddLink } from "../AddLink";
-
+import { addGift, AddGiftParams, GiftResponse } from "../../../services/gifts.service";
+// import { AddLink } from "../AddLink";
 export const AddGift = () => {
-    const { control, handleSubmit, formState: { errors } } = useForm<FormValues>({
+    const { control, handleSubmit, formState: { errors } } = useForm<AddGiftFormValues>({
         resolver: zodResolver(ADD_GIFT_SCHEMA),
         mode: 'onBlur',
     }); 
     
-    const {data, loading, error, fetch} = useApi<FormValues, null>(addGift, {autoFetch: false});
+    const {data, loading, error, fetch} = useApi<GiftResponse, AddGiftParams>(addGift);
 
+    const onSubmit: SubmitHandler<AddGiftFormValues> = (data: AddGiftFormValues) => {
+        fetch(data);
+      };
 
-    const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
-        console.log(data);
-    };
-
-    
+    if (data) {
+        return (
+          <div>
+            <h1>{data.title}</h1>
+            <p>{data.description}</p>
+            <p>{data.price}</p>
+            <p>{data.link}</p>
+          </div>
+        );
+      }
 
     if (loading) {
         return <div>Loading...</div>;
@@ -32,12 +39,14 @@ export const AddGift = () => {
     }
 
     return (
-        <>
+        <section className="addgift-page">
             <h1>
-                Add a new gift
+               Lets add a new gift
             </h1>
+            <h3>Encourage your friends to support you</h3>
+
             <form className="custom-form" onSubmit={handleSubmit(onSubmit)}>
-                <AddLink />
+                {/* <AddLink /> */}
                 <InputForm
                     name="title"
                     control={control}
@@ -49,7 +58,7 @@ export const AddGift = () => {
                     name="price"
                     control={control}
                     label="Price"
-                    type="number"
+                    type="text"
                     error={errors.price}
                 />
                 <InputForm
@@ -59,18 +68,18 @@ export const AddGift = () => {
                     type="text"
                     error={errors.description}
                 />
-                {/* <InputForm
-                    name="confirmPassword"
-                    control={control}
-                    label="Confirm Password"
-                    type="password"
-                    error={errors.confirmPassword}
-                /> */}
+                <InputForm
+                  name="url"
+                  control={control}
+                  label="Url"
+                  type="text"
+                  error={errors.url}
+                />
                 <button type="submit" className="btn btn-primary">
                     Add
                 </button>
             </form>
-        </>
+        </section>
     );
 }
 
