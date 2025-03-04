@@ -1,14 +1,13 @@
-FROM node:lts-alpine
+FROM node:18-alpine3.17 as build
 
-WORKDIR /usr/src/app/selfsanta-web
+WORKDIR /app
+COPY . /app
 
-COPY package*.json ./
 RUN npm install
-
-COPY . .
 RUN npm run build
 
-
-EXPOSE 5173
-
-CMD ["npm", "build"]
+FROM ubuntu
+RUN apt update && apt install nginx -y
+COPY --from=build /app/dist /var/www/html/
+EXPOSE 80
+CMD ["nginx","-g","daemon off;"]
